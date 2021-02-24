@@ -1,7 +1,7 @@
 
 # ServiceNow KB Articles App
 
-This is a simple React app deployed to ServiceNow that displays 30 Knowledge articles.
+A simple React app deployed to ServiceNow that displays 30 Knowledge articles.
 
 The app utilizes the ServiceNow REST Table API to display the Number, Topic, Short Description, and Date Published for 30 articles from the kb_knowledge table.
 
