@@ -2,7 +2,7 @@
   "name": "servicenow-react-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://dev38444.service-now.com",
+  "proxy": "https://dev57421.service-now.com",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.8.6",
