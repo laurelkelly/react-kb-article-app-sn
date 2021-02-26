@@ -1,7 +1,7 @@
 
 # React ServiceNow KB Articles App
 
-A simple React app deployed to ServiceNow that displays 40 Knowledge articles (10 per page).
+A simple React app deployed to ServiceNow that displays 10 Knowledge articles per page using ReactPaginate.
 
 The app utilizes the ServiceNow REST Table API to display the Number, Topic, Short Description, and Date Published for articles from the kb_knowledge table.
 
