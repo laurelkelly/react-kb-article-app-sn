@@ -27,10 +27,11 @@ function App() {
           </tr>)}
         )
         setArticles(postData)
-        setPageCount(Math.ceil(data.length / 7))
+        setPageCount(Math.ceil(data.length / perPage))
   }
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
+    console.log(e);
     console.log(selectedPage);
     setOffset(selectedPage * 7)
   };
@@ -102,6 +103,8 @@ function App() {
                   nextLinkClassName="page-link"
                   activeClassName="active"
                   onPageChange={handlePageClick}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
                 />
               </nav>
             </div>
