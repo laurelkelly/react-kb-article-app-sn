@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
+import './App.css';
 
 function App() {
   const [offset, setOffset] = useState(0);
   const [articles, setArticles] = useState([])  // empty array
-  const [perPage] = useState(10);
+  const [perPage] = useState(7);
   const [pageCount, setPageCount] = useState(0);
 
   const getData = async() => {
     const res = await axios.get('/api/now/table/kb_knowledge')
     const data = res.data.result;
+    //console.log(data);
       const slice = data.slice(offset, offset + perPage)
       const postData = slice.map((i) => {
         return (
@@ -25,11 +27,12 @@ function App() {
           </tr>)}
         )
         setArticles(postData)
-        setPageCount(Math.ceil(data.length / perPage))
+        setPageCount(Math.ceil(data.length / 7))
   }
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
-    setOffset(selectedPage + 1)
+    console.log(selectedPage);
+    setOffset(selectedPage * 7)
   };
 
   useEffect(() => {
@@ -55,14 +58,42 @@ function App() {
               { articles }
             </tbody>
           </table>
-          <div className='row'>
+          <div className='row no-gutters'>
             <div className='col-12'>
               <nav aria-label='Page navigation example'>
-                <ReactPaginate
+                {/* <ReactPaginate
                   containerClassName="pagination justify-content-center"
                   breakClassName="page-item"
                   pageCount={pageCount}
+                  //breakLabel={'...'}
                   breakLinkClassName="page-link"
+                  pageClassName="page-item"
+                  previousClassName="page-item"
+                  nextClassName="page-item"
+                  pageLinkClassName="page-link"
+                  previousLinkClassName="page-link"
+                  nextLinkClassName="page-link"
+                  activeClassName="active"
+                  onPageChange={handlePageClick}
+                /> */}
+                {/* <ReactPaginate
+                  previousLabel={"prev"}
+                  nextLabel={"next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={pageCount}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"active"}
+                /> */}
+                <ReactPaginate
+                  containerClassName="pagination justify-content-center"
+                  breakClassName="page-item"
+                  breakLinkClassName="page-link"
+                  pageCount={pageCount}
                   pageClassName="page-item"
                   previousClassName="page-item"
                   nextClassName="page-item"
